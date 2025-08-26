@@ -9,15 +9,8 @@ const App = () => {
   const[isAuthenticated,setIsAuthenticated]=useState(false);
   return (
     <BrowserRouter>
-    <div>
-
-      {isAuthenticated 
-   ? "Logged in, Now you can enter Playground" 
-   : "You are not authenticated, Please login first"}
-   
-
-      <div>
-        <nav>
+    <div className="main-container">
+       <nav>
           <ul>
                <li> <Link to="/login">Login</Link></li>
       
@@ -25,7 +18,15 @@ const App = () => {
       <li><Link to="/playground">PlayGround</Link></li>
       </ul>
       
-      </nav></div>
+      </nav>
+
+      {isAuthenticated 
+   ? "Logged in, Now you can enter Playground" 
+   : "You are not authenticated, Please login first"}
+   
+
+      
+       
 
       <Routes>
         <Route path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}/>

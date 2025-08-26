@@ -12,7 +12,7 @@ function Login({isAuthenticated,setIsAuthenticated}) {
         
    {isAuthenticated?"Logout":"Login"}
      <button onClick={handleAuth}>
-        {isAuthenticated?"Logout":"Login"}
+        {isAuthenticated?"Log Out":"Log In"}
      </button>
 
     </div>
