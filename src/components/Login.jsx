@@ -2,16 +2,18 @@ import React from 'react'
 
 function Login({isAuthenticated,setIsAuthenticated}) {
 
-    const handlelogin=()=>{
-        if(!isAuthenticated)
-        setIsAuthenticated(true);
+    const handleAuth=()=>{
+        
+        setIsAuthenticated(!isAuthenticated);
         
     }
   return (
     <div>
-        Login
         
-     <button onClick={handlelogin}>Login</button>
+   {isAuthenticated?"Logout":"Login"}
+     <button onClick={handleAuth}>
+        {isAuthenticated?"Logout":"Login"}
+     </button>
 
     </div>
   )
