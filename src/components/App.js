@@ -14,11 +14,11 @@ const App = () => {
       {isAuthenticated 
    ? "Logged in, Now you can enter Playground" 
    : "You are not authenticated, Please login first"}
-   <br/>
+   
 
       
       <Link to="/login">Login</Link>
-      <br/>
+      
       <Link to="/playground">PlayGround</Link>
 
       <Routes>
