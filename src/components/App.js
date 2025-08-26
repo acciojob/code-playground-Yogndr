@@ -16,11 +16,11 @@ const App = () => {
    : "You are not authenticated, Please login first"}
    <br/>
 
-
+      <nav>
       <Link to="/login">Login</Link>
       <br/>
       <Link to="/playground">PlayGround</Link>
-
+      </nav>
       <Routes>
         <Route path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path="/playground" element={isAuthenticated?<Playground/>:<Navigate to="/login"/>}/>
