@@ -17,11 +17,15 @@ const App = () => {
    
 
       <div>
-                <Link to="/login">Login</Link>
+        <nav>
+          <ul>
+               <li> <Link to="/login">Login</Link></li>
       
       
-      <Link to="/playground">PlayGround</Link>
-      </div>
+      <li><Link to="/playground">PlayGround</Link></li>
+      </ul>
+      
+      </nav></div>
 
       <Routes>
         <Route path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}/>
