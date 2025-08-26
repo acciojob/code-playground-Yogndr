@@ -14,17 +14,19 @@ const App = () => {
       {isAuthenticated 
    ? "Logged in, Now you can enter Playground" 
    : "You are not authenticated, Please login first"}
+   <br/>
    
 
       
       <Link to="/login">Login</Link>
+      <br/>
       
       <Link to="/playground">PlayGround</Link>
 
       <Routes>
         <Route path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}/>
         <Route path="/playground" element={isAuthenticated?<Playground/>:<Navigate to="/login"/>}/>
-        <Route path="*" element={<h2>Page Not Found</h2>} />
+        <Route path="/" element={<h2>Page Not Found</h2>} />
       </Routes>
         
     </div>
