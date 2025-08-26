@@ -1,33 +1,42 @@
-
 import React, { useState } from "react";
 import './../styles/App.css';
-import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Playground from "./Playground";
 
 const App = () => {
-  const[isAuthenticated,setIsAuthenticated]=useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
     <BrowserRouter>
-    <div className="main-container">
+      <div className="main-container">
+        <div>{isAuthenticated
+          ? "Logged in, Now you can enter Playground"
+          : "You are not authenticated, Please login first"}</div>
 
-      {isAuthenticated 
-   ? "Logged in, Now you can enter Playground" 
-   : "You are not authenticated, Please login first"}
-   
-
-      
+       
+          <ul>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/playground">PlayGround</Link></li>
+          </ul>
        
 
-      <Routes>
-        <Route path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}/>
-        <Route path="/playground" element={isAuthenticated?<Playground/>:<Navigate to="/login"/>}/>
-        <Route path="*" element={<h2>Page Not Found</h2>} />
-      </Routes>
-        
-    </div>
+        <Switch>
+          <Route
+            path="/login"
+            render={() => <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />}
+          />
+          <Route
+            path="/playground"
+            render={() =>
+              isAuthenticated ? <Playground /> : <Redirect to="/login" />
+            }
+          />
+          <Route render={() => <h2>Page Not Found</h2>} />
+        </Switch>
+      </div>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;
