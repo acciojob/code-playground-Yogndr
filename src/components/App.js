@@ -20,9 +20,9 @@ const App = () => {
       
       </nav>
 
-      {isAuthenticated 
+    <p>  {isAuthenticated 
    ? "Logged in, Now you can enter Playground" 
-   : "You are not authenticated, Please login first"}
+   : "You are not authenticated, Please login first"}</p>
    
 
       
