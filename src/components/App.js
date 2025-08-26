@@ -4,6 +4,8 @@ import { BrowserRouter, Link, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Playground from "./Playground";
 
+const NotFound = () => <>Page Not Found</>;
+
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -17,7 +19,7 @@ const App = () => {
        
           <ul>
             <li><Link to="/login">Login</Link></li>
-            <li><Link to="/playground">PlayGround</Link></li>
+            <li><Link to="/">PlayGround</Link></li>
           </ul>
        
 
@@ -27,12 +29,12 @@ const App = () => {
             render={() => <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />}
           />
           <Route
-            path="/playground"
+            path="/"
             render={() =>
               isAuthenticated ? <Playground /> : <Redirect to="/login" />
             }
           />
-          <Route render={() => <h2>Page Not Found</h2>} />
+          <Route component={NotFound} />
         </Switch>
       </div>
     </BrowserRouter>
