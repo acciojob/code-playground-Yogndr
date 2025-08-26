@@ -16,11 +16,12 @@ const App = () => {
    : "You are not authenticated, Please login first"}
    
 
-      
-      <Link to="/login">Login</Link>
+      <div>
+                <Link to="/login">Login</Link>
       
       
       <Link to="/playground">PlayGround</Link>
+      </div>
 
       <Routes>
         <Route path="/login" element={<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>}/>
