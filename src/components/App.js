@@ -31,7 +31,7 @@ const App = () => {
           <Route
             path="/"
             render={() =>
-              isAuthenticated ? <Playground /> : <Redirect to="/login" />
+              isAuthenticated ? <Playground isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/> : <Redirect to="/login" />
             }
           />
           <Route component={NotFound} />
